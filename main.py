@@ -2,6 +2,7 @@ import pygame
 import os
 import time
 import random
+import button
 pygame.font.init()
 pygame.mixer.init()
 
@@ -38,39 +39,10 @@ score_value = 0
 def show_score(x,y):
     score = font.render("score :" + str(score_value),True,(0,0,0))
     WIN.blit(score,(textX,textY))
-
-#Dania
-class Button():
-	def __init__(self, x, y, image, scale):
-		width = image.get_width()
-		height = image.get_height()
-		self.image = pygame.transform.scale(image, (int(width * scale), int(height * scale)))
-		self.rect = self.image.get_rect()
-		self.rect.topleft = (x, y)
-		self.clicked = False
-
-	def draw(self, surface):
-		action = False
-		#get mouse position
-		pos = pygame.mouse.get_pos()
-
-		#check mouseover and clicked conditions
-		if self.rect.collidepoint(pos):
-			if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
-				self.clicked = True
-				action = True
-
-		if pygame.mouse.get_pressed()[0] == 0:
-			self.clicked = False
-
-		#draw button on screen
-		surface.blit(self.image, (self.rect.x, self.rect.y))
-
-		return action
         
 #create button instances
-start_button = Button(100, 350, start_img, 0.8)
-exit_button = Button(450, 350, exit_img, 0.8)
+start_button = button.Button(100, 350, start_img, 0.8)
+exit_button = button.Button(450, 350, exit_img, 0.8)
 #Anisa
 class Laser:
     def __init__(self, x, y, img):
@@ -297,7 +269,7 @@ def main():
 def main_menu():
     title_font = pygame.font.SysFont("comicsans", 70)
     musik = pygame.mixer.Sound(r"D:\Games\assets\Instrumen Maju Tak Gentar.mp3")
-    musik.play()
+    musik.play(-1)
     run = True
     while run:
         WIN.blit(BGA, (0,0))
