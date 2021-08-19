@@ -5,7 +5,7 @@ import random
 pygame.font.init()
 pygame.mixer.init()
 
-WIDTH, HEIGHT = 750, 750
+WIDTH, HEIGHT = 750, 650
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Merdeka Corona")
 #Lany
@@ -19,7 +19,7 @@ GREEN_CORONAVIRUS = pygame.image.load(os.path.join("assets", "cov_green.png"))
 BLUE_CORONAVIRUS = pygame.image.load(os.path.join("assets", "cov_blue.png"))
 
 # Player player
-YELLOW_ANTIBODY = pygame.image.load(os.path.join("assets", "girl2.1.png"))
+YELLOW_ANTIBODY = pygame.image.load(os.path.join("assets", "girl.png"))
 
 # Lasers
 RED_LASER = pygame.image.load(os.path.join("assets", "pixel_laser_red.png"))
